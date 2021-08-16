@@ -3,27 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+[RequireComponent(typeof(HitTaker))]
+public class PlayerMover : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3;
     [SerializeField] float rotationSpeed = 40;
 
     Vector3 moveDirection;
     Rigidbody rgb;
+    HitTaker hitTaker;
 
-    void Awake()
+    private void Awake()
     {
         rgb = GetComponent<Rigidbody>();
+        hitTaker = GetComponent<HitTaker>();
     }
 
-    void Update()
+    private void Update()
     {
+        if (!hitTaker.IsAlive()) { return; }
+
         SetMovingDirection();
         RotateCharacter();
     }
 
     private void FixedUpdate()
     {
+        if (!hitTaker.IsAlive()) { return; }
+
         moveDirection.y = rgb.velocity.y;
         rgb.velocity = moveDirection.normalized * moveSpeed;
     }

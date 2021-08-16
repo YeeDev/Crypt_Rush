@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class Follower : MonoBehaviour
 {
     [SerializeField] float followSmooth = 1;
 
@@ -16,6 +16,8 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (player == null) { return; }
+
         transform.position = Vector3.SmoothDamp(transform.position, player.position, ref velocity, followSmooth);
     }
 }
