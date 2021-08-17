@@ -41,10 +41,10 @@ public class PlayerMover : MonoBehaviour
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             //According to Unity documentation, the == operator checks for approximate equality.
-            if (moveDirection == Vector3.zero) { return; }
-
             Vector3 lookDirection = moveDirection;
             lookDirection.y = 0;
+
+            if (lookDirection.sqrMagnitude <= Mathf.Epsilon) { return; }
 
             transform.rotation =
                 Quaternion.Slerp(
