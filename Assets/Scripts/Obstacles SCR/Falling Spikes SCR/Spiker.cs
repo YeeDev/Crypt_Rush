@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Spiker : MonoBehaviour
+public class Spiker : MonoBehaviour, ITrap
 {
     [SerializeField] float minPierceValue = 0.1f;
     [SerializeField] float maxPierceValue = 0.5f;
@@ -17,8 +15,8 @@ public class Spiker : MonoBehaviour
         pierceWaitTime = Random.Range(minPierceValue, maxPierceValue);
     }
 
-    //Called in SpikeDropper
-    public void ActivateSpike()
+    //Called in TrapActivator
+    public void ActivateTrap()
     {
         spikeCollider.enabled = true;
         rgb.useGravity = true;

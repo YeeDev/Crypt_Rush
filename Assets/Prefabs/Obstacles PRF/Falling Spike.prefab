@@ -220,10 +220,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7907054648687822210}
   - component: {fileID: 8393219609119858866}
-  - component: {fileID: 8924300680002905974}
+  - component: {fileID: 1557503084035639929}
   m_Layer: 0
   m_Name: Falling Spike
-  m_TagString: Spike
+  m_TagString: Trap Activator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,7 +258,7 @@ CapsuleCollider:
   m_Height: 8.733724
   m_Direction: 1
   m_Center: {x: 0, y: 3.8668618, z: 0}
---- !u!114 &8924300680002905974
+--- !u!114 &1557503084035639929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,4 +270,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71a7f8974688493488203f31c6d6c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallWaitTime: 0.2
+  trap: {fileID: 7907054648002499586}
+  activationDelay: 1

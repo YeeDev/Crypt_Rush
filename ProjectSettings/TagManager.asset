@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
-  - Spike
+  - Rolling Ball
+  - Trap Activator
   layers:
   - Default
   - TransparentFX

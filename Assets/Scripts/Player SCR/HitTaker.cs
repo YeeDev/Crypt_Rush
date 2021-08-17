@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerAnimator))]
 public class HitTaker : MonoBehaviour
 {
     [SerializeField] int hitsBeforeRestarting = 3;
+    [SerializeField] string[] damagerTags = null;
 
     bool isInvulnerable = false;
     PlayerAnimator plyAnm;
@@ -19,12 +18,22 @@ public class HitTaker : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Obstacle") && !isInvulnerable) { CalculateHits(); }
+        if (CheckForCorrectTag(collision.transform.tag) && !isInvulnerable) { CalculateHits(); }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle") && !isInvulnerable) { CalculateHits(); }
+        if (CheckForCorrectTag(other.tag) && !isInvulnerable) { CalculateHits(); }
+    }
+
+    private bool CheckForCorrectTag(string tagToCheck)
+    {
+        foreach (string tag in damagerTags)
+        {
+            if (tagToCheck == tag) { return true; }
+        }
+
+        return false;
     }
 
     private void CalculateHits()
