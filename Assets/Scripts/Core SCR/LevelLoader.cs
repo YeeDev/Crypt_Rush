@@ -11,6 +11,9 @@ public class LevelLoader : MonoBehaviour
 
     private void Awake() { currentLevelIndex = SceneManager.GetActiveScene().buildIndex; }
 
+    //Called in UI
+    public void CallLoadLevel(int otherLevel) { StartCoroutine(LoadLevel(false, otherLevel)); }
+
     //Called in HitTaker, Obstacle Triggerer
     public IEnumerator LoadLevel(bool loadCurrent = false, int loadOther = 0)
     {
