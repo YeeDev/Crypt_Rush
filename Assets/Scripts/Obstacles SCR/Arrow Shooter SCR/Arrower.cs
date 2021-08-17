@@ -12,6 +12,8 @@ public class Arrower : MonoBehaviour
 
     private void OnEnable() { StartCoroutine(ExpireArrow()); }
 
+    private void OnTriggerEnter(Collider other) { ReEnqueueArrow(); }
+
     private IEnumerator ExpireArrow()
     {
         if (timeToExpire <= Mathf.Epsilon) { yield break; } 
@@ -22,6 +24,4 @@ public class Arrower : MonoBehaviour
     }
 
     private void ReEnqueueArrow() { pooler.EnqueueArrow(gameObject); }
-
-    private void OnTriggerEnter(Collider other) { ReEnqueueArrow(); }
 }

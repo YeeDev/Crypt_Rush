@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
 {
+    //TODO Check if this script is necessary
     Animator anm;
 
     private void Awake()

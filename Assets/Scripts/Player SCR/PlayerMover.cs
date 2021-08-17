@@ -31,24 +31,20 @@ public class PlayerMover : MonoBehaviour
     {
         if (!hitTaker.IsAlive()) { return; }
 
-        moveDirection = moveDirection.normalized * moveSpeed;
-        moveDirection.y = rgb.velocity.y;
-        rgb.velocity = moveDirection;
+        MovePlayer();
     }
 
     private void RotateCharacter()
     {
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
-            //According to Unity documentation, the == operator checks for approximate equality.
             Vector3 lookDirection = moveDirection;
             lookDirection.y = 0;
 
+            //Prevents "0" warning.
             if (lookDirection.sqrMagnitude <= Mathf.Epsilon) { return; }
 
-            transform.rotation =
-                Quaternion.Slerp(
-                    transform.rotation, Quaternion.LookRotation(lookDirection), Time.deltaTime * rotationSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection), Time.deltaTime * rotationSpeed);
         }
     }
 
@@ -56,5 +52,12 @@ public class PlayerMover : MonoBehaviour
     {
         moveDirection.x = Input.GetAxis("Horizontal");
         moveDirection.z = Input.GetAxis("Vertical");
+    }
+
+    private void MovePlayer()
+    {
+        moveDirection = moveDirection.normalized * moveSpeed;
+        moveDirection.y = rgb.velocity.y;
+        rgb.velocity = moveDirection;
     }
 }

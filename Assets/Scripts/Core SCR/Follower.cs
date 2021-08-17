@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Follower : MonoBehaviour
 {
+    //Use an empty object and child the camera to it.
+
     [SerializeField] float followSmooth = 1;
 
     Vector3 velocity = Vector3.zero;

@@ -14,7 +14,6 @@ public class Spiker : MonoBehaviour
     private void Awake()
     {
         rgb = GetComponent<Rigidbody>();
-
         pierceWaitTime = Random.Range(minPierceValue, maxPierceValue);
     }
 
@@ -29,7 +28,7 @@ public class Spiker : MonoBehaviour
     {
         if (other.CompareTag("Player")) { return; }
 
-        Invoke("PierceGround", pierceWaitTime);
+        Invoke("PierceGround", pierceWaitTime);    //Pierces the ground at different depths for a more organic look.
     }
 
     private void PierceGround()

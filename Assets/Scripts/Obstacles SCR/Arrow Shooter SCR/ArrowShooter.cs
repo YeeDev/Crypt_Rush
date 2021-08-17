@@ -37,16 +37,16 @@ public class ArrowShooter : MonoBehaviour
             {
                 Debug.LogWarning("No Arrows Available");
                 yield return new WaitForSeconds(fireRate);
-                continue;
+                continue; //The "continue" function stops the loop at the point it is without stopping the loop.
             }
 
-            SetArrow(arrow);
+            InitializeArrow(arrow);
 
             yield return new WaitForSeconds(fireRate);
         }
     }
 
-    private void SetArrow(GameObject arrow)
+    private void InitializeArrow(GameObject arrow)
     {
         arrow.transform.position = transform.position;
         arrow.transform.rotation = targetRotation;

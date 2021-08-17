@@ -14,6 +14,11 @@ public class ArrowPooler : MonoBehaviour
 
     public void Awake()
     {
+        CreateInitialArrows();
+    }
+
+    private void CreateInitialArrows()
+    {
         for (int i = 0; i < startingArrows; i++)
         {
             arrowQueue.Enqueue(CreateNewArrow());
@@ -29,6 +34,7 @@ public class ArrowPooler : MonoBehaviour
         return newArrow;
     }
 
+    //Called from Arrowshooter
     public GameObject GetArrow()
     {
         if (arrowQueue.Count > 0) { return arrowQueue.Dequeue(); }
@@ -38,6 +44,7 @@ public class ArrowPooler : MonoBehaviour
         return CreateNewArrow();
     }
 
+    //Called from Arrower
     public void EnqueueArrow(GameObject arrowToEnqueue)
     {
         arrowToEnqueue.SetActive(false);
