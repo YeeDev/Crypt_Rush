@@ -11,6 +11,7 @@ public class HitTaker : MonoBehaviour
     Rigidbody rgb;
     PlayerAnimator plyAnm;
     UIUpdater uI;
+    LevelLoader loader;
 
     public bool IsAlive() { return hitsBeforeRestarting > 0; }
 
@@ -19,6 +20,7 @@ public class HitTaker : MonoBehaviour
         rgb = GetComponent<Rigidbody>();
         plyAnm = GetComponent<PlayerAnimator>();
         uI = GameObject.FindGameObjectWithTag("UI").GetComponent<UIUpdater>();
+        loader = FindObjectOfType<LevelLoader>();
     }
 
     private void Start()
@@ -76,6 +78,7 @@ public class HitTaker : MonoBehaviour
 
     private void KillPlayer()
     {
+        StartCoroutine(loader.LoadLevel(true));
         Debug.Log("Wasted!");
         Debug.Log("Kill the player!"); //TODO
     }
