@@ -31,18 +31,24 @@ public class PlayerMover : MonoBehaviour
     {
         if (!hitTaker.IsAlive()) { return; }
 
+        moveDirection = moveDirection.normalized * moveSpeed;
         moveDirection.y = rgb.velocity.y;
-        rgb.velocity = moveDirection.normalized * moveSpeed;
+        rgb.velocity = moveDirection;
     }
 
     private void RotateCharacter()
     {
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
-            if (Equals(moveDirection, Vector3.zero)) { return; }
+            //According to Unity documentation, the == operator checks for approximate equality.
+            if (moveDirection == Vector3.zero) { return; }
+
+            Vector3 lookDirection = moveDirection;
+            lookDirection.y = 0;
 
             transform.rotation =
-                Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDirection), Time.deltaTime * rotationSpeed);
+                Quaternion.Slerp(
+                    transform.rotation, Quaternion.LookRotation(lookDirection), Time.deltaTime * rotationSpeed);
         }
     }
 
