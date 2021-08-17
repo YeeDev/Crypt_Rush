@@ -10,6 +10,7 @@ public class HitTaker : MonoBehaviour
     bool isInvulnerable = false;
     Rigidbody rgb;
     PlayerAnimator plyAnm;
+    UIUpdater uI;
 
     public bool IsAlive() { return hitsBeforeRestarting > 0; }
 
@@ -17,6 +18,12 @@ public class HitTaker : MonoBehaviour
     {
         rgb = GetComponent<Rigidbody>();
         plyAnm = GetComponent<PlayerAnimator>();
+        uI = GameObject.FindGameObjectWithTag("UI").GetComponent<UIUpdater>();
+    }
+
+    private void Start()
+    {
+        uI.InitializeUI(hitsBeforeRestarting);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -42,11 +49,11 @@ public class HitTaker : MonoBehaviour
     private void CalculateHits(Vector3 hitterPosition)
     {
         hitsBeforeRestarting--;
+        uI.ResizeHeartBar(-1);
 
         if (hitsBeforeRestarting > 0)
         {
             Push(hitterPosition);
-
             SetVulnerability();
             plyAnm.TriggerAnimation("Invunerable");
             return;
