@@ -6,6 +6,7 @@ public class PlayerMover : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3;
     [SerializeField] float rotationSpeed = 40;
+    [SerializeField] float pushForce = 50;
 
     Vector3 moveDirection;
     Rigidbody rgb;
@@ -30,6 +31,13 @@ public class PlayerMover : MonoBehaviour
         if (!hitTaker.IsAlive()) { return; }
 
         MovePlayer();
+    }
+
+    //Called in HitTaker
+    public void PushRigidbody(Vector3 direction)
+    {
+        direction.y = transform.position.y;
+        rgb.AddForce((transform.position - direction).normalized * pushForce, ForceMode.VelocityChange);
     }
 
     private void RotateCharacter()

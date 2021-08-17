@@ -28,7 +28,7 @@ public class ArrowPooler : MonoBehaviour
     {
         GameObject newArrow = Instantiate(arrow, transform);
         newArrow.SetActive(false);
-        newArrow.GetComponent<Arrower>().SetArrowPooler = this;
+        newArrow.GetComponent<Arrow>().SetArrowPooler = this;
 
         return newArrow;
     }

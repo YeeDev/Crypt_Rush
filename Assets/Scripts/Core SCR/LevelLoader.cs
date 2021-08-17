@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,6 +24,7 @@ public class LevelLoader : MonoBehaviour
         int levelToLoad = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
         levelToLoad = loadCurrent ? currentLevelIndex : levelToLoad;
         levelToLoad = loadOther != 0 ? loadOther : levelToLoad;
+        levelToLoad = !loadCurrent && loadOther == 0 ? menuSceneIndex : levelToLoad;
 
         //TODO Load Main Menu when finishing?
 

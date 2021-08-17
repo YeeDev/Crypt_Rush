@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Arrower : MonoBehaviour
+public class Arrow: MonoBehaviour
 {
     [SerializeField] float timeToExpire = 5;
 

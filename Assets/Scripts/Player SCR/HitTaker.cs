@@ -4,22 +4,21 @@ using UnityEngine;
 public class HitTaker : MonoBehaviour
 {
     [SerializeField] int hitsBeforeRestarting = 3;
-    [SerializeField] float pushForce = 10;
     [SerializeField] string[] damagerTags = null;
 
     bool isInvulnerable = false;
-    Rigidbody rgb;
-    PlayerAnimator plyAnm;
     UIUpdater uI;
+    PlayerAnimator plyAnm;
     LevelLoader loader;
+    PlayerMover mover;
 
     public bool IsAlive() { return hitsBeforeRestarting > 0; }
 
     private void Awake()
     {
-        rgb = GetComponent<Rigidbody>();
         plyAnm = GetComponent<PlayerAnimator>();
         uI = GameObject.FindGameObjectWithTag("UI").GetComponent<UIUpdater>();
+        mover = GetComponent<PlayerMover>();
         loader = FindObjectOfType<LevelLoader>();
     }
 
@@ -55,7 +54,7 @@ public class HitTaker : MonoBehaviour
 
         if (hitsBeforeRestarting > 0)
         {
-            Push(hitterPosition);
+            mover.PushRigidbody(hitterPosition);
             SetVulnerability();
             plyAnm.TriggerAnimation("Invunerable");
             return;
@@ -64,17 +63,7 @@ public class HitTaker : MonoBehaviour
         KillPlayer();
     }
 
-    private void Push(Vector3 hitterPosition)
-    {
-        hitterPosition.y = transform.position.y;
-        rgb.AddForce((transform.position - hitterPosition).normalized * pushForce, ForceMode.VelocityChange);
-    }
-
-    //Also called in animation event.
-    public void SetVulnerability()
-    {
-        isInvulnerable = !isInvulnerable;
-    }
+    public void SetVulnerability() { isInvulnerable = !isInvulnerable; }     //Also called in animation event.
 
     private void KillPlayer()
     {
