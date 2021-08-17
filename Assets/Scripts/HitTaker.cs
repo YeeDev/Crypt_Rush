@@ -19,11 +19,12 @@ public class HitTaker : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Obstacle") && !isInvulnerable)
-        {
-            collision.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
-            CalculateHits();
-        }
+        if (collision.transform.CompareTag("Obstacle") && !isInvulnerable) { CalculateHits(); }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle") && !isInvulnerable) { CalculateHits(); }
     }
 
     private void CalculateHits()
