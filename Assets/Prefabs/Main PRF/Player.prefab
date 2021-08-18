@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 1620775138393634258}
   - component: {fileID: 1620775138393634271}
   - component: {fileID: 1620775138393634269}
+  - component: {fileID: 1193876191888018916}
   - component: {fileID: 1620775138393634270}
   - component: {fileID: 1620775138393634268}
   - component: {fileID: 1620775138393634266}
@@ -250,6 +251,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1193876191888018916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620775138393634261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504b41236e8824ee9883229f673f0b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundChecker: {fileID: 406279571}
+  checkerRadius: 0.44
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &1620775138393634270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,14 +281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.08
-  rotationSpeed: 40
-  pushForce: 8
   jumpForce: 450
-  groundChecker: {fileID: 406279571}
-  checkerRadius: 0.45
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  rotationSpeed: 45
+  pushForce: 8
 --- !u!114 &1620775138393634268
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1306460276621412534}
   m_Layer: 5
   m_Name: UI
-  m_TagString: UI
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHearts: {fileID: 0}
   backgroundHearts: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!1 &1306460277123386851
 GameObject:
   m_ObjectHideFlags: 0

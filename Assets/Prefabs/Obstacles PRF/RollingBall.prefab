@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1095536784535208148}
   m_Layer: 0
   m_Name: RollingBall
-  m_TagString: Rolling Ball
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

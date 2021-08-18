@@ -1,4 +1,6 @@
 using UnityEngine;
+using CryptRush.Movement;
+using CryptRush.Animation;
 
 [RequireComponent(typeof(PlayerAnimator))]
 public class HitTaker : MonoBehaviour
