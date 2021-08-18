@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using CryptRush.SceneControl;
 using CryptRush.UI;
+using CryptRush.Core;
 
 namespace CryptRush.Control
 {

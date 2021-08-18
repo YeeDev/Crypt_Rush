@@ -1,4 +1,5 @@
 using UnityEngine;
+using CryptRush.Core;
 using CryptRush.Stats;
 using CryptRush.Movement;
 using CryptRush.Animation;
@@ -12,12 +13,14 @@ namespace CryptRush.Collisions
         PlayerMover mover;
         PlayerAnimator anim;
         StatsHandler stats;
+        LevelLoader loader;
 
         private void Awake()
         {
             stats = GetComponent<StatsHandler>();
             mover = GetComponent<PlayerMover>();
             anim = GetComponent<PlayerAnimator>();
+            loader = FindObjectOfType<LevelLoader>();
         }
 
         private void OnTriggerEnter(Collider other) { CheckCollisionType(other.transform); }
@@ -25,8 +28,11 @@ namespace CryptRush.Collisions
 
         private void CheckCollisionType(Transform collisioner)
         {
+            if (stats.IsPlayerDead) { return; }
+
             if (collisioner.CompareTag("Obstacle")) { TakeDamage(collisioner); }
             if (collisioner.CompareTag("Trap Activator")) { ActivateTrap(collisioner); }
+            if (collisioner.CompareTag("Goal")) { StartCoroutine(loader.LoadLevel()); }
         }
 
         private void TakeDamage(Transform damageDealer)

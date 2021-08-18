@@ -2,7 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace CryptRush.SceneControl
+//TODO This needs a refactor
+//TODO Consider a GameState script
+namespace CryptRush.Core
 {
     public class LevelLoader : MonoBehaviour
     {
@@ -15,7 +17,7 @@ namespace CryptRush.SceneControl
         //Called in UI
         public void CallLoadLevel(int otherLevel) { StartCoroutine(LoadLevel(false, otherLevel)); }
 
-        //Called in HitTaker, Obstacle Triggerer
+        //Called in CollisionHandler
         public IEnumerator LoadLevel(bool loadCurrent = false, int loadOther = 0)
         {
             yield return new WaitForSeconds(loadDelay);

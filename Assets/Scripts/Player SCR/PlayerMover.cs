@@ -6,7 +6,7 @@ namespace CryptRush.Movement
     public class PlayerMover : MonoBehaviour
     {
         [Range(-10, 10)] [SerializeField] float moveSpeed = 3;
-        [Range(-100, 100)] [SerializeField] float jumpForce = 50;
+        [Range(-1000, 1000)] [SerializeField] float jumpForce = 50;
         [Range(-100, 100)] [SerializeField] float pushForce = 50;
 
         Rigidbody rgb;
