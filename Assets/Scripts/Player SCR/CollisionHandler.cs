@@ -1,36 +1,49 @@
 using UnityEngine;
+using CryptRush.Stats;
+using CryptRush.Movement;
+using CryptRush.Animation;
 
-namespace CryptRush.Collision
+namespace CryptRush.Collisions
 {
     public class CollisionHandler : MonoBehaviour
     {
-        LevelLoader loader;
+        bool isInvulnerable;
+        PlayerMover mover;
+        PlayerAnimator anim;
+        StatsHandler stats;
 
         private void Awake()
         {
-            loader = FindObjectOfType<LevelLoader>();
+            stats = GetComponent<StatsHandler>();
+            mover = GetComponent<PlayerMover>();
+            anim = GetComponent<PlayerAnimator>();
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other) { CheckCollisionType(other.transform); }
+        private void OnCollisionEnter(Collision collision) { CheckCollisionType(collision.transform); }
+
+        private void CheckCollisionType(Transform collisioner)
         {
-            ActivateTrap(other);
-            WinGame(other);
+            if (collisioner.CompareTag("Obstacle")) { TakeDamage(collisioner); }
         }
 
-        private static void ActivateTrap(Collider other)
+        private void TakeDamage(Transform damageDealer)
         {
-            if (other.CompareTag("Trap Activator"))
+            if (isInvulnerable) { return; }
+
+            isInvulnerable = true;
+            stats.ModifyHealth(-1);
+
+            if (stats.IsPlayerDead)
             {
-                other.GetComponent<TrapActivator>().StartCoroutine("ActivateTrap");
+                //KillPlayer
             }
+
+            anim.TriggerAnimation("TakeDamage");
+            mover.Push(damageDealer.position);
         }
 
-        private void WinGame(Collider other)
-        {
-            if (other.CompareTag("Goal"))
-            {
-                StartCoroutine(loader.LoadLevel());
-            }
-        }
+        //Called in Animation Event
+        public void MakeVulnerable() { isInvulnerable = false; } 
     }
 }

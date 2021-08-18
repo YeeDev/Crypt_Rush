@@ -14,10 +14,10 @@ namespace CryptRush.Animation
             anm = GetComponent<Animator>();
         }
 
-        //Called in Hitter
+        //Called in CollisionHandler.
         public void TriggerAnimation(string animation) { anm.SetTrigger(animation); }
 
-        //Called in PlayerController
+        //Called in PlayerController.
         public void RotateCharacter(bool isMoving, Vector3 moveDirection)
         {
             if (!isMoving) { return; }

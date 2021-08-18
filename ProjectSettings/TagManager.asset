@@ -5,9 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
-  - Rolling Ball
   - Trap Activator
-  - UI
   - Goal
   layers:
   - Default

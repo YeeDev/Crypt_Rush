@@ -15,7 +15,7 @@ public class UIUpdater : MonoBehaviour
         singleHeartSize = currentHearts.sizeDelta.x;
     }
 
-    //Called in HitTaker
+    //Called in StatsHandler.
     public void InitializeUI(float maxHearts)
     {
         maxSize = maxHearts * singleHeartSize;
@@ -23,6 +23,7 @@ public class UIUpdater : MonoBehaviour
         ResizeHeartBar(maxHearts, true);
     }
 
+    //Also called in StatsHandler.
     public void ResizeHeartBar(float modifier, bool changeBackground = false)
     {
         Vector2 newDeltaSize = currentHearts.sizeDelta;

@@ -296,10 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873e7ac8c250748b3973cb3e99bc1503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitsBeforeRestarting: 3
-  damagerTags:
-  - Obstacle
-  - Rolling Ball
+  health: 3
 --- !u!114 &1620775138393634266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e41193d63e3478b80f108d2ba022e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 40
 --- !u!114 &1620775138393634267
 MonoBehaviour:
   m_ObjectHideFlags: 0
