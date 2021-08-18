@@ -4,10 +4,18 @@ using UnityEngine;
 [RequireComponent(typeof(HitTaker))]
 public class PlayerMover : MonoBehaviour
 {
+    [Header("Move Settings")]
     [SerializeField] float moveSpeed = 3;
     [SerializeField] float rotationSpeed = 40;
     [SerializeField] float pushForce = 50;
 
+    [Header("Jump Settings")]
+    [SerializeField] float jumpForce = 50;
+    [SerializeField] Transform groundChecker = null;
+    [SerializeField] float checkerRadius = 0.2f;
+    [SerializeField] LayerMask groundLayer = 0;
+
+    bool grounded;
     Vector3 moveDirection;
     Rigidbody rgb;
     HitTaker hitTaker;
@@ -24,11 +32,14 @@ public class PlayerMover : MonoBehaviour
 
         SetMovingDirection();
         RotateCharacter();
+        Jump();
     }
 
     private void FixedUpdate()
     {
         if (!hitTaker.IsAlive()) { return; }
+
+        grounded = Physics.CheckSphere(groundChecker.position, checkerRadius, groundLayer);
 
         MovePlayer();
     }
@@ -38,6 +49,12 @@ public class PlayerMover : MonoBehaviour
     {
         direction.y = transform.position.y;
         rgb.AddForce((transform.position - direction).normalized * pushForce, ForceMode.VelocityChange);
+    }
+
+    private void SetMovingDirection()
+    {
+        moveDirection.x = Input.GetAxis("Horizontal");
+        moveDirection.z = Input.GetAxis("Vertical");
     }
 
     private void RotateCharacter()
@@ -54,16 +71,29 @@ public class PlayerMover : MonoBehaviour
         }
     }
 
-    private void SetMovingDirection()
+    private void Jump()
     {
-        moveDirection.x = Input.GetAxis("Horizontal");
-        moveDirection.z = Input.GetAxis("Vertical");
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            rgb.AddForce(Vector3.up * jumpForce);
+        }
+        else if (Input.GetButtonUp("Jump") && rgb.velocity.y > 0)
+        {
+            Vector3 haltSpeed = rgb.velocity;
+            haltSpeed.y *= 0.5f;
+            rgb.velocity = haltSpeed;
+        }
     }
 
     private void MovePlayer()
     {
         moveDirection = moveDirection.normalized * moveSpeed;
-        moveDirection.y = rgb.velocity.y;
-        rgb.velocity = moveDirection;
+        rgb.MovePosition(transform.position + moveDirection);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(groundChecker.position, checkerRadius);
     }
 }
