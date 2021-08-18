@@ -2,6 +2,7 @@ using UnityEngine;
 using CryptRush.Stats;
 using CryptRush.Movement;
 using CryptRush.Animation;
+using CryptRush.ObstacleManagement;
 
 namespace CryptRush.Collisions
 {
@@ -25,6 +26,7 @@ namespace CryptRush.Collisions
         private void CheckCollisionType(Transform collisioner)
         {
             if (collisioner.CompareTag("Obstacle")) { TakeDamage(collisioner); }
+            if (collisioner.CompareTag("Trap Activator")) { ActivateTrap(collisioner); }
         }
 
         private void TakeDamage(Transform damageDealer)
@@ -44,6 +46,8 @@ namespace CryptRush.Collisions
         }
 
         //Called in Animation Event
-        public void MakeVulnerable() { isInvulnerable = false; } 
+        public void MakeVulnerable() { isInvulnerable = false; }
+
+        private void ActivateTrap(Transform trap) { StartCoroutine(trap.GetComponent<TrapActivator>().ActivateTrap()); }
     }
 }

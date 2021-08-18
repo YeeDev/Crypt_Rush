@@ -1,4 +1,5 @@
 using UnityEngine;
+using CryptRush.UI;
 
 namespace CryptRush.Stats
 {

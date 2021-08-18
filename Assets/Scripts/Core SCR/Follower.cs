@@ -1,23 +1,26 @@
 using UnityEngine;
 
-public class Follower : MonoBehaviour
+namespace CryptRush.Core
 {
-    //Use an empty object and child the camera to it.
-
-    [SerializeField] float followSmooth = 1;
-
-    Vector3 velocity = Vector3.zero;
-    Transform player;
-
-    private void Awake()
+    public class Follower : MonoBehaviour
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
+        //Use an empty object and child the camera to it.
 
-    void FixedUpdate()
-    {
-        if (player == null) { return; }
+        [SerializeField] float followSmooth = 1;
 
-        transform.position = Vector3.SmoothDamp(transform.position, player.position, ref velocity, followSmooth);
+        Vector3 velocity = Vector3.zero;
+        Transform player;
+
+        private void Awake()
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
+        void FixedUpdate()
+        {
+            if (player == null) { return; }
+
+            transform.position = Vector3.SmoothDamp(transform.position, player.position, ref velocity, followSmooth);
+        }
     }
 }

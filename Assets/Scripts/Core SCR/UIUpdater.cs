@@ -1,43 +1,47 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIUpdater : MonoBehaviour
+namespace CryptRush.UI
 {
-    [SerializeField] RectTransform currentHearts = null;
-    [SerializeField] RectTransform backgroundHearts = null;
-    [SerializeField] Text timerText = null;
-
-    float singleHeartSize;
-    float maxSize;
-
-    private void Awake()
+    public class UIUpdater : MonoBehaviour
     {
-        singleHeartSize = currentHearts.sizeDelta.x;
-    }
+        [SerializeField] RectTransform currentHearts = null;
+        [SerializeField] RectTransform backgroundHearts = null;
+        [SerializeField] Text timerText = null;
 
-    //Called in StatsHandler.
-    public void InitializeUI(float maxHearts)
-    {
-        maxSize = maxHearts * singleHeartSize;
+        float singleHeartSize;
+        float maxSize;
 
-        ResizeHeartBar(maxHearts, true);
-    }
-
-    //Also called in StatsHandler.
-    public void ResizeHeartBar(float modifier, bool changeBackground = false)
-    {
-        Vector2 newDeltaSize = currentHearts.sizeDelta;
-        newDeltaSize.x = Mathf.Clamp(newDeltaSize.x + modifier * singleHeartSize, 0, maxSize);
-        currentHearts.sizeDelta = newDeltaSize;
-
-        if (changeBackground)
+        private void Awake()
         {
-            backgroundHearts.sizeDelta = newDeltaSize;
+            singleHeartSize = currentHearts.sizeDelta.x;
         }
-    }
 
-    public void UpdateTimer(string timeToDisplay)
-    {
-        timerText.text = $"{timeToDisplay} sec";
+        //Called in StatsHandler.
+        public void InitializeUI(float maxHearts)
+        {
+            maxSize = maxHearts * singleHeartSize;
+
+            ResizeHeartBar(maxHearts, true);
+        }
+
+        //Also called in StatsHandler.
+        public void ResizeHeartBar(float modifier, bool changeBackground = false)
+        {
+            Vector2 newDeltaSize = currentHearts.sizeDelta;
+            newDeltaSize.x = Mathf.Clamp(newDeltaSize.x + modifier * singleHeartSize, 0, maxSize);
+            currentHearts.sizeDelta = newDeltaSize;
+
+            if (changeBackground)
+            {
+                backgroundHearts.sizeDelta = newDeltaSize;
+            }
+        }
+
+        //Called in Timer.
+        public void UpdateTimer(string timeToDisplay)
+        {
+            timerText.text = $"{timeToDisplay} sec";
+        }
     }
 }
