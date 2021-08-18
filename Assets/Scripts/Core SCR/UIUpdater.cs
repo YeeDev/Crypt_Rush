@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIUpdater : MonoBehaviour
 {
     [SerializeField] RectTransform currentHearts = null;
     [SerializeField] RectTransform backgroundHearts = null;
+    [SerializeField] Text timerText = null;
 
     float singleHeartSize;
     float maxSize;
@@ -33,5 +33,10 @@ public class UIUpdater : MonoBehaviour
         {
             backgroundHearts.sizeDelta = newDeltaSize;
         }
+    }
+
+    public void UpdateTimer(string timeToDisplay)
+    {
+        timerText.text = $"{timeToDisplay} sec";
     }
 }
