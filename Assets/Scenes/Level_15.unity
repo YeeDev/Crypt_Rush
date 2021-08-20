@@ -258,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2203871288682925178, guid: 1645a6408d713462b8f2caa163178156, type: 3}
       propertyPath: shootDelay
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2203871288682925179, guid: 1645a6408d713462b8f2caa163178156, type: 3}
       propertyPath: m_Name
@@ -1168,7 +1168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2203871288682925178, guid: 1645a6408d713462b8f2caa163178156, type: 3}
       propertyPath: shootDelay
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2203871288682925179, guid: 1645a6408d713462b8f2caa163178156, type: 3}
       propertyPath: m_Name
@@ -1237,7 +1237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2203871288682925178, guid: 1645a6408d713462b8f2caa163178156, type: 3}
       propertyPath: shootDelay
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2203871288682925179, guid: 1645a6408d713462b8f2caa163178156, type: 3}
       propertyPath: m_Name
@@ -2617,7 +2617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2203871288682925178, guid: 1645a6408d713462b8f2caa163178156, type: 3}
       propertyPath: shootDelay
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2203871288682925179, guid: 1645a6408d713462b8f2caa163178156, type: 3}
       propertyPath: m_Name
