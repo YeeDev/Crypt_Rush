@@ -30,7 +30,7 @@ namespace CryptRush.Collisions
         {
             if (stats.IsPlayerDead) { return; }
 
-            if (collisioner.CompareTag("Obstacle")) { TakeDamage(collisioner); }
+            if (collisioner.CompareTag("Obstacle") || collisioner.CompareTag("Instant Killer")) { TakeDamage(collisioner); }
             if (collisioner.CompareTag("Trap Activator")) { ActivateTrap(collisioner); }
             if (collisioner.CompareTag("Goal")) { StartCoroutine(loader.LoadLevel()); }
         }
@@ -40,7 +40,8 @@ namespace CryptRush.Collisions
             if (isInvulnerable) { return; }
 
             isInvulnerable = true;
-            stats.ModifyHealth(-1);
+            int damageToTake = transform.CompareTag("Instant Killer") ? -1 : -99999;
+            stats.ModifyHealth(damageToTake);
 
             if (stats.IsPlayerDead)
             {

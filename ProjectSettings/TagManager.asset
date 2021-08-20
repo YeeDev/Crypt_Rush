@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - Trap Activator
   - Goal
+  - Instant Killer
   layers:
   - Default
   - TransparentFX
