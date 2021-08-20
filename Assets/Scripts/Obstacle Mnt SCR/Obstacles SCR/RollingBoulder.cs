@@ -2,10 +2,11 @@ using UnityEngine;
 
 namespace CryptRush.Obstacle
 {
-    public class RollingBaller : MonoBehaviour
+    public class RollingBoulder : MonoBehaviour
     {
-        [SerializeField] float speed;
-        [SerializeField] Vector3 moveDirection;
+        [SerializeField] float speed = 0;
+        [SerializeField] float maxYSpeed = 5;
+        [SerializeField] Vector3 moveDirection = Vector3.zero;
 
         Vector3 directionalSpeed;
         Rigidbody rgb;
@@ -23,7 +24,7 @@ namespace CryptRush.Obstacle
         private void RollBall()
         {
             directionalSpeed = moveDirection.normalized * speed;
-            directionalSpeed.y = rgb.velocity.y;
+            directionalSpeed.y = Mathf.Clamp(rgb.velocity.y, -maxYSpeed, maxYSpeed);
             rgb.velocity = directionalSpeed;
         }
     }
