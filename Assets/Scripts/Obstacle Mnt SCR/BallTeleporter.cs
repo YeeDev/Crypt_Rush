@@ -7,13 +7,20 @@ namespace CryptRush.ObstacleManagement
     {
         [SerializeField] bool teleports = true;
         [SerializeField] float timeToRespawn = 5;
-        [SerializeField] Transform ballPositioner = null;
+        [SerializeField] Transform boulder = null;
 
-        private void OnCollisionEnter(Collision collision)
+        Vector3 startingPosition;
+
+        private void Awake()
         {
-            GameObject colliderObject = collision.gameObject;
+            startingPosition = boulder.position;
+        }
 
-            if (colliderObject.CompareTag("Rolling Ball"))
+        private void OnTriggerEnter(Collider other)
+        {
+            GameObject colliderObject = other.gameObject;
+
+            if (colliderObject.CompareTag("Obstacle"))
             {
                 colliderObject.SetActive(false);
 
@@ -28,7 +35,7 @@ namespace CryptRush.ObstacleManagement
         {
             yield return new WaitForSeconds(timeToRespawn);
 
-            ball.transform.position = ballPositioner.position;
+            ball.transform.position = startingPosition;
             ball.SetActive(true);
         }
     }
