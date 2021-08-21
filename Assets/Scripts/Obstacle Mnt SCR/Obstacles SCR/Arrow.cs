@@ -14,7 +14,13 @@ namespace CryptRush.Obstacle
 
         private void OnEnable() { StartCoroutine(ExpireArrow()); }
 
-        private void OnTriggerEnter(Collider other) { if (!other.CompareTag("Trap Activator")) { ReEnqueueArrow(); } }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!other.CompareTag("Trap Activator") && !other.CompareTag("Shooter"))
+            {
+                ReEnqueueArrow();
+            }
+        }
 
         private IEnumerator ExpireArrow()
         {

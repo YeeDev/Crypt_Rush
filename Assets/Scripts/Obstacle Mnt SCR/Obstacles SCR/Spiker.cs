@@ -21,7 +21,7 @@ namespace CryptRush.Obstacle
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player")) { return; }
+            if (other.CompareTag("Player") || other.CompareTag("Obstacle")) { return; }
 
             Invoke("PierceGround", pierceWaitTime);    //Pierces the ground at different depths for a more organic look.
         }

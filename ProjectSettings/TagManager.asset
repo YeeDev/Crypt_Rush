@@ -8,6 +8,7 @@ TagManager:
   - Trap Activator
   - Goal
   - Instant Killer
+  - Shooter
   layers:
   - Default
   - TransparentFX
