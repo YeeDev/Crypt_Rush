@@ -6,15 +6,12 @@ namespace CryptRush.Obstacle
 {
     public class ArrowShooter : MonoBehaviour
     {
-        [SerializeField] bool shoots = true;
         [SerializeField] float fireRate = 2;
         [SerializeField] float shootDelay = 0;
         [SerializeField] float arrowSpeed = 2;
 
         Quaternion targetRotation;
         ArrowPooler pooler;
-
-        public bool Shoots { set => shoots = value; }
 
         private void Awake()
         {
@@ -27,11 +24,11 @@ namespace CryptRush.Obstacle
             StartCoroutine(ShootRepeteadly());
         }
 
-        public IEnumerator ShootRepeteadly()
+        private IEnumerator ShootRepeteadly()
         {
             yield return new WaitForSeconds(shootDelay);
 
-            while (shoots)
+            while (true)
             {
                 GameObject arrow = pooler.GetArrow();
 

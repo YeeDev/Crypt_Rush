@@ -10,10 +10,7 @@ namespace CryptRush.ObstacleManagement
 
         Collider triggerCollider;
 
-        private void Awake()
-        {
-            triggerCollider = GetComponent<Collider>();
-        }
+        private void Awake() { triggerCollider = GetComponent<Collider>(); }
 
         public IEnumerator ActivateTrap()
         {

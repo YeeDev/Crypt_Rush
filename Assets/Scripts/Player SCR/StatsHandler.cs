@@ -14,6 +14,7 @@ namespace CryptRush.Stats
         private void Awake() { uI = FindObjectOfType<UIUpdater>(); }
         private void Start() { uI.InitializeUI(health); } //Avoids racing.
 
+        //Called in CollisionHandler
         public void ModifyHealth(int quantity)
         {
             health += quantity;

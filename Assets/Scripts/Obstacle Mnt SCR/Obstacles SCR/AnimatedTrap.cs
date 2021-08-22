@@ -13,6 +13,11 @@ namespace CryptRush.Obstacle
         {
             anm = GetComponent<Animator>();
 
+            SetAnimationParameters();
+        }
+
+        private void SetAnimationParameters()
+        {
             anm.speed = animationSpeed;
             anm.SetFloat("Offset", animationOffset);
         }

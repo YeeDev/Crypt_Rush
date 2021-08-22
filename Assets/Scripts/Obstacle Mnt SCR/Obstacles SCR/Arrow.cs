@@ -10,16 +10,14 @@ namespace CryptRush.Obstacle
 
         ArrowPooler pooler;
 
+        //Called in ArrowPooler
         public ArrowPooler SetArrowPooler { set => pooler = value; }
 
         private void OnEnable() { StartCoroutine(ExpireArrow()); }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!other.CompareTag("Trap Activator") && !other.CompareTag("Shooter"))
-            {
-                ReEnqueueArrow();
-            }
+            if (!other.CompareTag("Trap Activator") && !other.CompareTag("Shooter")) { ReEnqueueArrow(); }
         }
 
         private IEnumerator ExpireArrow()

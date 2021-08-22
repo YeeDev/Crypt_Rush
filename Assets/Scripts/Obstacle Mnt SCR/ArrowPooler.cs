@@ -12,9 +12,10 @@ namespace CryptRush.ObstacleManagement
 
         private Queue<GameObject> arrowQueue = new Queue<GameObject>();
 
+        //Used in ArrowShooter
         public Quaternion GetArrowRotation { get => arrow.transform.rotation; }
 
-        public void Awake()
+        private void Awake()
         {
             CreateInitialArrows();
         }

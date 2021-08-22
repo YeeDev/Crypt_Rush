@@ -12,10 +12,7 @@ namespace CryptRush.UI
         float singleHeartSize;
         float maxSize;
 
-        private void Awake()
-        {
-            singleHeartSize = currentHearts.sizeDelta.x;
-        }
+        private void Awake() { singleHeartSize = currentHearts.sizeDelta.x; }
 
         //Called in StatsHandler.
         public void InitializeUI(float maxHearts)
@@ -39,9 +36,6 @@ namespace CryptRush.UI
         }
 
         //Called in Timer.
-        public void UpdateTimer(string timeToDisplay)
-        {
-            timerText.text = $"{timeToDisplay} sec";
-        }
+        public void UpdateTimer(string timeToDisplay) { timerText.text = $"{timeToDisplay} sec"; }
     }
 }

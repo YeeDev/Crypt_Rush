@@ -11,15 +11,9 @@ namespace CryptRush.Obstacle
         Vector3 directionalSpeed;
         Rigidbody rgb;
 
-        private void Awake()
-        {
-            rgb = GetComponent<Rigidbody>();
-        }
+        private void Awake() { rgb = GetComponent<Rigidbody>(); }
 
-        private void Update()
-        {
-            RollBall();
-        }
+        private void Update() { RollBall(); }
 
         private void RollBall()
         {
