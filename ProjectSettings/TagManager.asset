@@ -9,6 +9,8 @@ TagManager:
   - Goal
   - Instant Killer
   - Shooter
+  - Fall
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

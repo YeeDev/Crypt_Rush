@@ -4,6 +4,7 @@ using CryptRush.Stats;
 using CryptRush.Movement;
 using CryptRush.Animation;
 using CryptRush.ObstacleManagement;
+using System;
 
 namespace CryptRush.Collisions
 {
@@ -14,6 +15,7 @@ namespace CryptRush.Collisions
         PlayerAnimator anim;
         StatsHandler stats;
         LevelLoader loader;
+        CheckpointManager checkpoint;
 
         private void Awake()
         {
@@ -21,6 +23,7 @@ namespace CryptRush.Collisions
             mover = GetComponent<PlayerMover>();
             anim = GetComponent<PlayerAnimator>();
             loader = FindObjectOfType<LevelLoader>();
+            checkpoint = FindObjectOfType<CheckpointManager>();
         }
 
         private void OnTriggerEnter(Collider other) { CheckCollisionType(other.transform); }
@@ -33,6 +36,7 @@ namespace CryptRush.Collisions
             if (collisioner.CompareTag("Obstacle") || collisioner.CompareTag("Instant Killer")) { TakeDamage(collisioner); }
             if (collisioner.CompareTag("Trap Activator")) { ActivateTrap(collisioner); }
             if (collisioner.CompareTag("Goal")) { StartCoroutine(loader.LoadLevel()); }
+            if (collisioner.CompareTag("Fall")) { TakeDamage(collisioner); checkpoint.RespawnPlayer(transform); }
         }
 
         private void TakeDamage(Transform damageDealer)
