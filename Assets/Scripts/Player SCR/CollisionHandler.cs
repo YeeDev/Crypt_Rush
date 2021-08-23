@@ -44,7 +44,8 @@ namespace CryptRush.Collisions
             if (isInvulnerable && !damageDealer.CompareTag("Fall")) { return; }
 
             isInvulnerable = true;
-            int damageToTake = !transform.CompareTag("Instant Killer") ? -1 : -99999;
+            int damageToTake = !damageDealer.CompareTag("Instant Killer") ? -1 : -99999;
+            print(damageToTake);
             stats.ModifyHealth(damageToTake);
 
             if (stats.IsPlayerDead)

@@ -12,6 +12,10 @@ namespace CryptRush.Core
 
         private void Awake() { currentCheckpoint = initialCheckPoint; }
 
-        public void SetCheckpoint(Transform checkpoint) { currentCheckpoint = checkpoint; }
+        public void SetCheckpoint(Transform checkpoint)
+        {
+            currentCheckpoint = checkpoint;
+            checkpoint.GetComponent<Renderer>().material.color = Color.green;
+        }
     }
 }
