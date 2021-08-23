@@ -39,5 +39,13 @@ namespace CryptRush.Movement
             pusherPosition.y = transform.position.y;
             rgb.AddForce((transform.position - pusherPosition).normalized * pushForce, ForceMode.VelocityChange);
         }
+
+        //Called in CollisionHandler.
+        public void Respawn(Vector3 checkpoint)
+        {
+            //TODO disable control
+            transform.position = checkpoint;
+            rgb.velocity = Vector3.zero;
+        }
     }
 }

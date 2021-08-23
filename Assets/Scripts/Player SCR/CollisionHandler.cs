@@ -4,7 +4,6 @@ using CryptRush.Stats;
 using CryptRush.Movement;
 using CryptRush.Animation;
 using CryptRush.ObstacleManagement;
-using System;
 
 namespace CryptRush.Collisions
 {
@@ -36,12 +35,13 @@ namespace CryptRush.Collisions
             if (collisioner.CompareTag("Obstacle") || collisioner.CompareTag("Instant Killer")) { TakeDamage(collisioner); }
             if (collisioner.CompareTag("Trap Activator")) { ActivateTrap(collisioner); }
             if (collisioner.CompareTag("Goal")) { StartCoroutine(loader.LoadLevel()); }
-            if (collisioner.CompareTag("Fall")) { TakeDamage(collisioner); checkpoint.RespawnPlayer(transform); }
+            if (collisioner.CompareTag("Fall")) { ProceessFall(collisioner); }
+            if (collisioner.CompareTag("Checkpoint")) { checkpoint.SetCheckpoint(collisioner);  }
         }
 
         private void TakeDamage(Transform damageDealer)
         {
-            if (isInvulnerable) { return; }
+            if (isInvulnerable && !damageDealer.CompareTag("Fall")) { return; }
 
             isInvulnerable = true;
             int damageToTake = !transform.CompareTag("Instant Killer") ? -1 : -99999;
@@ -53,12 +53,21 @@ namespace CryptRush.Collisions
             }
 
             anim.TriggerAnimation("TakeDamage");
-            mover.Push(damageDealer.position);
+            if (!damageDealer.CompareTag("Fall")) { mover.Push(damageDealer.position); }
         }
 
         //Called in Animation Event
         public void MakeVulnerable() { isInvulnerable = false; }
 
         private void ActivateTrap(Transform trap) { StartCoroutine(trap.GetComponent<TrapActivator>().ActivateTrap()); }
+
+        private void ProceessFall(Transform collisioner)
+        {
+            TakeDamage(collisioner);
+
+            if (stats.IsPlayerDead) { return; }
+
+            mover.Respawn(checkpoint.GetCheckpoint);
+        }
     }
 }
