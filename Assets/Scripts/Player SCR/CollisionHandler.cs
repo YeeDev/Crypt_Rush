@@ -15,6 +15,7 @@ namespace CryptRush.Collisions
         StatsHandler stats;
         LevelLoader loader;
         CheckpointManager checkpoint;
+        StateHandler state;
 
         private void Awake()
         {
@@ -23,6 +24,7 @@ namespace CryptRush.Collisions
             anim = GetComponent<PlayerAnimator>();
             loader = FindObjectOfType<LevelLoader>();
             checkpoint = FindObjectOfType<CheckpointManager>();
+            state = FindObjectOfType<StateHandler>();
         }
 
         private void OnTriggerEnter(Collider other) { CheckCollisionType(other.transform); }
@@ -30,7 +32,7 @@ namespace CryptRush.Collisions
 
         private void CheckCollisionType(Transform collisioner)
         {
-            if (stats.IsPlayerDead) { return; }
+            if (state.GetCurrentState != GameState.Playing) { return; }
 
             if (collisioner.CompareTag("Obstacle") || collisioner.CompareTag("Instant Killer")) { TakeDamage(collisioner); }
             if (collisioner.CompareTag("Trap Activator")) { ActivateTrap(collisioner); }
@@ -45,12 +47,12 @@ namespace CryptRush.Collisions
 
             isInvulnerable = true;
             int damageToTake = !damageDealer.CompareTag("Instant Killer") ? -1 : -99999;
-            print(damageToTake);
             stats.ModifyHealth(damageToTake);
 
-            if (stats.IsPlayerDead)
+            if (state.GetCurrentState != GameState.Playing)
             {
                 //KillPlayer
+                //TODO Posibly add a particle animation in the animator
             }
 
             anim.TriggerAnimation("TakeDamage");
@@ -66,7 +68,7 @@ namespace CryptRush.Collisions
         {
             TakeDamage(collisioner);
 
-            if (stats.IsPlayerDead) { return; }
+            if (state.GetCurrentState != GameState.Playing) { return; }
 
             mover.Respawn(checkpoint.GetCheckpoint);
         }

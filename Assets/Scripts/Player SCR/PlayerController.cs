@@ -2,6 +2,7 @@ using UnityEngine;
 using CryptRush.Movement;
 using CryptRush.Animation;
 using CryptRush.Stats;
+using CryptRush.Core;
 
 namespace CryptRush.Control
 {
@@ -18,17 +19,19 @@ namespace CryptRush.Control
         PlayerMover mover;
         PlayerAnimator anim;
         StatsHandler stats;
+        StateHandler state;
 
         private void Awake()
         {
             mover = GetComponent<PlayerMover>();
             anim = GetComponent<PlayerAnimator>();
             stats = GetComponent<StatsHandler>();
+            state = FindObjectOfType<StateHandler>();
         }
 
         private void Update()
         {
-            if (stats.IsPlayerDead) { return; }
+            if (state.GetCurrentState != GameState.Playing) { return; }
 
             ReadAxisInput();
             ReadJumpInput();
@@ -36,7 +39,7 @@ namespace CryptRush.Control
 
         private void FixedUpdate()
         {
-            if (stats.IsPlayerDead) { return; }
+            if (state.GetCurrentState != GameState.Playing) { return; }
 
             grounded = Physics.CheckSphere(groundChecker.position, checkerRadius, groundLayer);
 

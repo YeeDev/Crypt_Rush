@@ -1,5 +1,6 @@
 using UnityEngine;
 using CryptRush.UI;
+using CryptRush.Core;
 
 namespace CryptRush.Stats
 {
@@ -7,11 +8,15 @@ namespace CryptRush.Stats
     {
         [SerializeField] int health = 3;
 
+        StateHandler state;
         UIUpdater uI;
 
-        public bool IsPlayerDead { get => health <= 0; }
+        private void Awake()
+        {
+            state = FindObjectOfType<StateHandler>();
+            uI = FindObjectOfType<UIUpdater>();
+        }
 
-        private void Awake() { uI = FindObjectOfType<UIUpdater>(); }
         private void Start() { uI.InitializeUI(health); } //Avoids racing.
 
         //Called in CollisionHandler
@@ -19,6 +24,8 @@ namespace CryptRush.Stats
         {
             health += quantity;
             uI.ResizeHeartBar(quantity);
+
+            if (health <= 0) { state.SetState = GameState.Dead; }
         }
     }
 }
