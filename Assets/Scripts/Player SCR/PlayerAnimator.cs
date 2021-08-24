@@ -36,7 +36,7 @@ namespace CryptRush.Animation
         public void DeadAnimation()
         {
             Instantiate(deadParticles, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

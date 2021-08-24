@@ -3,36 +3,37 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 //TODO This needs a refactor
-//TODO Consider a GameState script
+//TODO This won't work like this at all.
 namespace CryptRush.Core
 {
     public class LevelLoader : MonoBehaviour
     {
-        [SerializeField] float loadDelay = 2;
+        [SerializeField] int timeToLoad = 2;
 
         int currentLevelIndex;
 
         private void Awake() { currentLevelIndex = SceneManager.GetActiveScene().buildIndex; }
 
         //Called in UI
-        public void CallLoadLevel(int otherLevel) { StartCoroutine(LoadLevel(false, otherLevel)); }
+        public void UILoadLevel(int otherLevel) { LoadLevel(false, otherLevel); }
 
-        //Called in CollisionHandler
-        public IEnumerator LoadLevel(bool loadCurrent = false, int loadOther = 0)
+        //Called in 
+        public void StarLoadWithDelay(bool loadNext = false, int loadOther = -1) { StartCoroutine(DelayedLoad(loadNext, loadOther)); }
+
+        private void LoadLevel(bool loadNext, int loadOther) { SceneManager.LoadScene(GetLevelToLoad(loadNext, loadOther)); }
+
+        private IEnumerator DelayedLoad(bool loadNext = false, int loadOther = -1)
         {
-            yield return new WaitForSeconds(loadDelay);
+            yield return new WaitForSeconds(timeToLoad);
 
-            SceneManager.LoadScene(GetLevelToLoad(loadCurrent, loadOther));
+            LoadLevel(loadNext, loadOther);
         }
 
-        private int GetLevelToLoad(bool loadCurrent, int loadOther)
+        private int GetLevelToLoad(bool loadNext, int loadOther)
         {
-            int levelToLoad = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings;
-            levelToLoad = loadCurrent ? currentLevelIndex : levelToLoad;
-            levelToLoad = loadOther != 0 ? loadOther : levelToLoad;
-
-            //TODO Load Main Menu when finishing?
-
+            int levelToLoad = currentLevelIndex;
+            levelToLoad = loadNext ? (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings : levelToLoad;
+            levelToLoad = loadOther != -1 ? loadOther : levelToLoad;
             return levelToLoad;
         }
     }

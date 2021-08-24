@@ -36,7 +36,7 @@ namespace CryptRush.Collisions
 
             if (collisioner.CompareTag("Obstacle") || collisioner.CompareTag("Instant Killer")) { TakeDamage(collisioner); }
             if (collisioner.CompareTag("Trap Activator")) { ActivateTrap(collisioner); }
-            if (collisioner.CompareTag("Goal")) { StartCoroutine(loader.LoadLevel()); }
+            if (collisioner.CompareTag("Goal")) { loader.StarLoadWithDelay(true); }
             if (collisioner.CompareTag("Fall")) { ProceessFall(collisioner); }
             if (collisioner.CompareTag("Checkpoint")) { checkpoint.SetCheckpoint(collisioner);  }
         }
@@ -51,6 +51,7 @@ namespace CryptRush.Collisions
 
             if (state.GetCurrentState != GameState.Playing)
             {
+                loader.StarLoadWithDelay();
                 anim.DeadAnimation();
                 return;
             }

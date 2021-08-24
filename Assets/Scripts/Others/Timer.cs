@@ -30,7 +30,7 @@ namespace CryptRush.Control
             }
 
             //TODO Change this to something else.
-            loader.LoadLevel(true);
+            loader.UILoadLevel(0);
         }
     }
 }
