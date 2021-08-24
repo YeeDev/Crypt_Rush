@@ -4,6 +4,7 @@ using CryptRush.Stats;
 using CryptRush.Movement;
 using CryptRush.Animation;
 using CryptRush.ObstacleManagement;
+using CryptRush.Control;
 
 namespace CryptRush.Collisions
 {
@@ -16,6 +17,8 @@ namespace CryptRush.Collisions
         LevelLoader loader;
         CheckpointManager checkpoint;
         StateHandler state;
+        Scorer scorer;
+        Timer timer;
 
         private void Awake()
         {
@@ -25,6 +28,8 @@ namespace CryptRush.Collisions
             loader = FindObjectOfType<LevelLoader>();
             checkpoint = FindObjectOfType<CheckpointManager>();
             state = FindObjectOfType<StateHandler>();
+            scorer = FindObjectOfType<Scorer>();
+            timer = FindObjectOfType<Timer>();
         }
 
         private void OnTriggerEnter(Collider other) { CheckCollisionType(other.transform); }
@@ -36,7 +41,7 @@ namespace CryptRush.Collisions
 
             if (collisioner.CompareTag("Obstacle") || collisioner.CompareTag("Instant Killer")) { TakeDamage(collisioner); }
             if (collisioner.CompareTag("Trap Activator")) { ActivateTrap(collisioner); }
-            if (collisioner.CompareTag("Goal")) { loader.StarLoadWithDelay(true); }
+            if (collisioner.CompareTag("Goal")) { ProcessGoal(); }
             if (collisioner.CompareTag("Fall")) { ProceessFall(collisioner); }
             if (collisioner.CompareTag("Checkpoint")) { checkpoint.SetCheckpoint(collisioner);  }
         }
@@ -64,6 +69,12 @@ namespace CryptRush.Collisions
         public void MakeVulnerable() { isInvulnerable = false; }
 
         private void ActivateTrap(Transform trap) { StartCoroutine(trap.GetComponent<TrapActivator>().ActivateTrap()); }
+
+        private void ProcessGoal()
+        {
+            scorer.UpdateScore(timer.GetLastingTime, stats.GetCurrentHealth);
+            loader.StarLoadWithDelay(true);
+        }
 
         private void ProceessFall(Transform collisioner)
         {

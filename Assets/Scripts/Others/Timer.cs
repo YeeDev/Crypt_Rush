@@ -9,13 +9,18 @@ namespace CryptRush.Control
     {
         [SerializeField] int timeBeforeLosing = 60;
 
+        StateHandler state;
         LevelLoader loader;
         UIUpdater uI;
+
+        //Got in CollisionHandler.
+        public int GetLastingTime { get => timeBeforeLosing; }
 
         private void Awake()
         {
             loader = FindObjectOfType<LevelLoader>();
             uI = FindObjectOfType<UIUpdater>();
+            state = FindObjectOfType<StateHandler>();
 
             StartCoroutine(RunTimer());
         }
@@ -25,8 +30,10 @@ namespace CryptRush.Control
             for (int i = timeBeforeLosing; i >= 0; i--)
             {
                 yield return new WaitForSeconds(1);
+                if (state.GetCurrentState != GameState.Playing) { yield break; }
 
-                uI.UpdateTimer(i.ToString());
+                timeBeforeLosing--;
+                uI.UpdateTimer(i);
             }
 
             //TODO Change this to something else.

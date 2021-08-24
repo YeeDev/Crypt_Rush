@@ -8,6 +8,7 @@ namespace CryptRush.UI
         [SerializeField] RectTransform currentHearts = null;
         [SerializeField] RectTransform backgroundHearts = null;
         [SerializeField] Text timerText = null;
+        [SerializeField] Text scoreText = null;
 
         float singleHeartSize;
         float maxSize;
@@ -36,6 +37,9 @@ namespace CryptRush.UI
         }
 
         //Called in Timer.
-        public void UpdateTimer(string timeToDisplay) { timerText.text = $"{timeToDisplay} sec"; }
+        public void UpdateTimer(int timeToDisplay) { timerText.text = $"{timeToDisplay} sec"; }
+
+        //Called in Scorer.
+        public void UpdateScore(int score) { scoreText.text = $"Score: {score}"; }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4484384525863928578}
   - component: {fileID: 9126267123234602532}
   - component: {fileID: 1249992427}
+  - component: {fileID: 98767401}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663377e5e149646dea2c1b6ed0f36d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadDelay: 2
+  timeToLoad: 2
 --- !u!114 &9126267123234602532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ecf0ca9bfc4e48cb9cc9a09f4981cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeLosing: 60
+  timeBeforeLosing: 45
 --- !u!114 &1249992427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,3 +73,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+--- !u!114 &98767401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8772110922725242532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd71d33bf96641319546d421f61e66a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsPerSecond: 10
+  pointsPerHeart: 50

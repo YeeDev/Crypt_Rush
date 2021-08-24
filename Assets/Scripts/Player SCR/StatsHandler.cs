@@ -11,6 +11,9 @@ namespace CryptRush.Stats
         StateHandler state;
         UIUpdater uI;
 
+        //Got in CollisionHandler
+        public int GetCurrentHealth { get => health; }
+
         private void Awake()
         {
             state = FindObjectOfType<StateHandler>();
