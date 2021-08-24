@@ -51,8 +51,8 @@ namespace CryptRush.Collisions
 
             if (state.GetCurrentState != GameState.Playing)
             {
-                //KillPlayer
-                //TODO Posibly add a particle animation in the animator
+                anim.DeadAnimation();
+                return;
             }
 
             anim.TriggerAnimation("TakeDamage");

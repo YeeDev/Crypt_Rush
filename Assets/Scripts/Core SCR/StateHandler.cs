@@ -8,6 +8,7 @@ namespace CryptRush.Core
     {
         [SerializeField] GameState currentState = 0;
 
+        //Separated just to be clear as to what is the action taken.
         public GameState GetCurrentState { get => currentState; }
         public GameState SetState { set => currentState = value; }
     }

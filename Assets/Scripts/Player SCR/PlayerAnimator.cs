@@ -6,6 +6,7 @@ namespace CryptRush.Animation
     public class PlayerAnimator : MonoBehaviour
     {
         [SerializeField] float rotationSpeed = 40f;
+        [SerializeField] GameObject deadParticles = null;
 
         Animator anm;
 
@@ -29,6 +30,13 @@ namespace CryptRush.Animation
 
             transform.rotation = Quaternion.Slerp(
                 transform.rotation, Quaternion.LookRotation(lookDirection), Time.deltaTime * rotationSpeed);
+        }
+
+        //Called in CollisionHandler
+        public void DeadAnimation()
+        {
+            Instantiate(deadParticles, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }

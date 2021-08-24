@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 40
+  deadParticles: {fileID: 4803755086991234957, guid: d25558c4c7b804eef8bef929e186e882, type: 3}
 --- !u!114 &1620775138393634267
 MonoBehaviour:
   m_ObjectHideFlags: 0
