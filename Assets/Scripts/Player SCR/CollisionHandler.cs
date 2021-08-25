@@ -72,6 +72,7 @@ namespace CryptRush.Collisions
 
         private void ProcessGoal()
         {
+            Debug.Log(timer.GetLastingTime);
             scorer.UpdateScore(timer.GetLastingTime, stats.GetCurrentHealth);
             loader.StarLoadWithDelay(true);
         }
