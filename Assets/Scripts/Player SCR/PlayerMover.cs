@@ -43,7 +43,6 @@ namespace CryptRush.Movement
         //Called in CollisionHandler.
         public void Respawn(Vector3 checkpoint)
         {
-            //TODO disable control
             transform.position = checkpoint;
             rgb.velocity = Vector3.zero;
         }

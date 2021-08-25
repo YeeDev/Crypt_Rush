@@ -4,5 +4,5 @@ using UnityEngine;
 
 namespace CryptRush.Core
 {
-    public enum GameState { Playing, Dead }
+    public enum GameState { Playing, NotPlaying }
 }

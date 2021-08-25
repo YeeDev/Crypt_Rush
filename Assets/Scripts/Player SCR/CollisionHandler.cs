@@ -46,7 +46,7 @@ namespace CryptRush.Collisions
             if (collisioner.CompareTag("Checkpoint")) { checkpoint.SetCheckpoint(collisioner);  }
         }
 
-        private void TakeDamage(Transform damageDealer)
+        private void TakeDamage(Transform damageDealer) //TODO Should this be handled somewhere else?
         {
             if (isInvulnerable && !damageDealer.CompareTag("Fall")) { return; }
 
@@ -72,7 +72,7 @@ namespace CryptRush.Collisions
 
         private void ProcessGoal()
         {
-            state.SetState = GameState.Dead;
+            state.SetState = GameState.NotPlaying;
             scorer.UpdateScore(timer.GetLastingTime, stats.GetCurrentHealth);
             loader.StarLoadWithDelay(true);
         }

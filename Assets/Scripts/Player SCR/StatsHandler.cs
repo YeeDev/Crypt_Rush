@@ -28,7 +28,7 @@ namespace CryptRush.Stats
             health += quantity;
             uI.ResizeHeartBar(quantity);
 
-            if (health <= 0) { state.SetState = GameState.Dead; }
+            if (health <= 0) { state.SetState = GameState.NotPlaying; }
         }
     }
 }
