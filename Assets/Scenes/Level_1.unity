@@ -1748,10 +1748,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 9126267123234602532, guid: 5592a1bdb26a5436d94ca99a9aa60b71, type: 3}
-      propertyPath: timeBeforeLosing
-      value: 60
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5592a1bdb26a5436d94ca99a9aa60b71, type: 3}
 --- !u!1001 &5799689235937413769

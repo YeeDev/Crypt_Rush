@@ -17,7 +17,6 @@ namespace CryptRush.Collisions
         LevelLoader loader;
         CheckpointManager checkpoint;
         StateHandler state;
-        Scorer scorer;
         Timer timer;
 
         private void Awake()
@@ -28,7 +27,6 @@ namespace CryptRush.Collisions
             loader = FindObjectOfType<LevelLoader>();
             checkpoint = FindObjectOfType<CheckpointManager>();
             state = FindObjectOfType<StateHandler>();
-            scorer = FindObjectOfType<Scorer>();
             timer = FindObjectOfType<Timer>();
         }
 
@@ -73,7 +71,6 @@ namespace CryptRush.Collisions
         private void ProcessGoal()
         {
             state.SetState = GameState.NotPlaying;
-            scorer.UpdateScore(timer.GetLastingTime, stats.GetCurrentHealth);
             loader.StarLoadWithDelay(true);
         }
 
