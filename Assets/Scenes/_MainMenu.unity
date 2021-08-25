@@ -207,8 +207,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 603511910}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: CallLoadLevel
+        m_TargetAssemblyTypeName: CryptRush.Core.LevelLoader, Assembly-CSharp
+        m_MethodName: UILoadLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1190,14 +1190,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 837406816, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1535906290}
-    - target: {fileID: 1073608745893178559, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1306460276621412535, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1288,11 +1280,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
---- !u!1 &1535906290 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1073608745893178559, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
-  m_PrefabInstance: {fileID: 1535906289}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1652530843
 GameObject:
   m_ObjectHideFlags: 0

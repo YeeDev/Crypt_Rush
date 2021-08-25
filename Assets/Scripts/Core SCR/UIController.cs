@@ -11,20 +11,39 @@ namespace CryptRush.Control
 
         bool paused;
         StateHandler state;
+        LevelLoader loader;
 
-        private void Awake() { state = FindObjectOfType<StateHandler>(); }
-
-        private void Update() { ReadPauseInput(); }
-
-        private void ReadPauseInput()
+        private void Awake()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            state = FindObjectOfType<StateHandler>();
+            loader = FindObjectOfType<LevelLoader>();
+        }
+
+        private void Start()
+        {
+            UnPauseGame();
+        }
+
+        private void UnPauseGame()
+        {
+            if (Time.timeScale <= 0)
             {
-                paused = !paused;
-                Time.timeScale = paused ? 0 : 1;
-                state.SetState = paused ? GameState.NotPlaying : GameState.Playing;
-                pauseMenu.SetActive(paused);
+                paused = true;
+                PauseGame();
             }
         }
+
+        private void Update() { if (Input.GetKeyDown(KeyCode.Escape)) { PauseGame(); } }
+
+        //Also called in UI.
+        public void PauseGame()
+        {
+            paused = !paused;
+            Time.timeScale = paused ? 0 : 1;
+            state.SetState = paused ? GameState.NotPlaying : GameState.Playing;
+            pauseMenu.SetActive(paused);
+        }
+
+        public void LoadMainMenu() { loader.UILoadLevel(0); }
     }
 }
