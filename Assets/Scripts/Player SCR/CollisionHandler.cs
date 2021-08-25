@@ -72,7 +72,7 @@ namespace CryptRush.Collisions
 
         private void ProcessGoal()
         {
-            Debug.Log(timer.GetLastingTime);
+            state.SetState = GameState.Dead;
             scorer.UpdateScore(timer.GetLastingTime, stats.GetCurrentHealth);
             loader.StarLoadWithDelay(true);
         }

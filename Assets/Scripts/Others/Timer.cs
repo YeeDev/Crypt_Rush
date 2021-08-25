@@ -27,13 +27,16 @@ namespace CryptRush.Control
 
         private IEnumerator RunTimer()
         {
+            uI.UpdateTimer(timeBeforeLosing);
+
             for (int i = timeBeforeLosing; i >= 0; i--)
             {
+                uI.UpdateTimer(i);
+
                 yield return new WaitForSeconds(1);
                 if (state.GetCurrentState != GameState.Playing) { yield break; }
 
                 timeBeforeLosing--;
-                uI.UpdateTimer(i);
             }
 
             //TODO Change this to something else.
