@@ -15,14 +15,11 @@ namespace CryptRush.Control
 
         private void Awake()
         {
-            state = FindObjectOfType<StateHandler>();
-            loader = FindObjectOfType<LevelLoader>();
+            state = GetComponent<StateHandler>();
+            loader = GetComponent<LevelLoader>();
         }
 
-        private void Start()
-        {
-            UnPauseGame();
-        }
+        private void Start() { UnPauseGame(); }
 
         private void UnPauseGame()
         {
