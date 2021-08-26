@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using CryptRush.Core;
 using CryptRush.Stats;
@@ -39,7 +40,7 @@ namespace CryptRush.Collisions
 
             if (collisioner.CompareTag("Obstacle") || collisioner.CompareTag("Instant Killer")) { TakeDamage(collisioner); }
             if (collisioner.CompareTag("Trap Activator")) { ActivateTrap(collisioner); }
-            if (collisioner.CompareTag("Goal")) { ProcessGoal(); }
+            if (collisioner.CompareTag("Goal")) { StartCoroutine(ProcessGoal(collisioner)); }
             if (collisioner.CompareTag("Fall")) { ProceessFall(collisioner); }
             if (collisioner.CompareTag("Checkpoint")) { checkpoint.SetCheckpoint(collisioner);  }
         }
@@ -68,9 +69,15 @@ namespace CryptRush.Collisions
 
         private void ActivateTrap(Transform trap) { StartCoroutine(trap.GetComponent<TrapActivator>().ActivateTrap()); }
 
-        private void ProcessGoal()
+        private IEnumerator ProcessGoal(Transform goal)
         {
             state.SetState = GameState.NotPlaying;
+
+            while (mover.MovingToPoint(goal.position)) { yield return new WaitForFixedUpdate(); }
+
+            transform.parent = goal;
+            goal.GetComponentInParent<Animator>().SetTrigger("MoveDown");
+
             loader.StarLoadWithDelay(true);
         }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using CryptRush.Animation;
 
 namespace CryptRush.Movement
 {
@@ -10,8 +11,13 @@ namespace CryptRush.Movement
         [Range(-100, 100)] [SerializeField] float pushForce = 50;
 
         Rigidbody rgb;
+        PlayerAnimator anim;
 
-        private void Awake() { rgb = GetComponent<Rigidbody>(); }
+        private void Awake()
+        {
+            rgb = GetComponent<Rigidbody>();
+            anim = GetComponent<PlayerAnimator>();
+        }
 
         //Called in PlayerController.
         public void MovePlayer(Vector3 direction)
@@ -45,6 +51,19 @@ namespace CryptRush.Movement
         {
             transform.position = checkpoint;
             rgb.velocity = Vector3.zero;
+        }
+
+        public bool MovingToPoint(Vector3 point)
+        {
+            Vector3 targetPosition = point;
+            targetPosition.y = transform.position.y;
+
+            float step = moveSpeed * Time.fixedDeltaTime * 40;
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+
+            anim.RotateCharacter(true, targetPosition - transform.position);
+            
+            return (transform.position - targetPosition).sqrMagnitude > 0.01f;
         }
     }
 }
