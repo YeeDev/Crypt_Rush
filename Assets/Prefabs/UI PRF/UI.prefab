@@ -587,7 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -801,7 +801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663377e5e149646dea2c1b6ed0f36d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToLoad: 3
 --- !u!95 &3089059908368451124
 Animator:
   serializedVersion: 3
