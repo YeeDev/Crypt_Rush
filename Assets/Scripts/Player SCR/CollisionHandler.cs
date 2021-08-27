@@ -6,7 +6,6 @@ using CryptRush.Movement;
 using CryptRush.Animation;
 using CryptRush.ObstacleManagement;
 using CryptRush.Control;
-using CryptRush.UI;
 
 namespace CryptRush.Collisions
 {
@@ -19,7 +18,6 @@ namespace CryptRush.Collisions
         LevelLoader loader;
         CheckpointManager checkpoint;
         StateHandler state;
-        Timer timer;
         UIController uI;
 
         private void Awake()
@@ -30,7 +28,6 @@ namespace CryptRush.Collisions
             loader = FindObjectOfType<LevelLoader>();
             checkpoint = FindObjectOfType<CheckpointManager>();
             state = FindObjectOfType<StateHandler>();
-            timer = FindObjectOfType<Timer>();
             uI = FindObjectOfType<UIController>();
         }
 
