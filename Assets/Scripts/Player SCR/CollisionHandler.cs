@@ -75,8 +75,8 @@ namespace CryptRush.Collisions
 
             while (mover.MovingToPoint(goal.position)) { yield return new WaitForFixedUpdate(); }
 
-            transform.parent = goal;
             goal.GetComponentInParent<Animator>().SetTrigger("MoveDown");
+            transform.parent = goal;
 
             loader.StarLoadWithDelay(true);
         }

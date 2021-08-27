@@ -1606,6 +1606,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1566304687, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
+      propertyPath: m_Name
+      value: FadeImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566304689, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1306460276621412535, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1693,22 +1701,6 @@ PrefabInstance:
     - target: {fileID: 1306460276621412539, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 1306460276621412539, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 5039233100465441276, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6738238807261995342, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6954787157021626952, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a29b90e160b344af9ab6f3037d49370b, type: 3}
