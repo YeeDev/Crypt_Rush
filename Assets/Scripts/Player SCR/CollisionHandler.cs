@@ -55,8 +55,9 @@ namespace CryptRush.Collisions
 
             if (state.GetCurrentState != GameState.Playing)
             {
-                loader.StarLoadWithDelay();
+                loader.StarLoadWithDelay(4);
                 anim.DeadAnimation();
+                uI.GetComponent<Animator>().SetTrigger("FadeOutDelay");
                 return;
             }
 
@@ -78,7 +79,7 @@ namespace CryptRush.Collisions
             goal.GetComponentInParent<Animator>().SetTrigger("MoveDown");
             transform.parent = goal;
 
-            loader.StarLoadWithDelay(true);
+            loader.StarLoadWithDelay(2, true);
             uI.GetComponent<Animator>().SetTrigger("FadeOut");
         }
 

@@ -8,8 +8,6 @@ namespace CryptRush.Core
 {
     public class LevelLoader : MonoBehaviour
     {
-        [SerializeField] int timeToLoad = 2;
-
         int currentLevelIndex;
 
         private void Awake() { currentLevelIndex = SceneManager.GetActiveScene().buildIndex; }
@@ -18,11 +16,14 @@ namespace CryptRush.Core
         public void UILoadLevel(int otherLevel) { LoadLevel(false, otherLevel); }
 
         //Called in 
-        public void StarLoadWithDelay(bool loadNext = false, int loadOther = -1) { StartCoroutine(DelayedLoad(loadNext, loadOther)); }
+        public void StarLoadWithDelay(int timeToLoad = 2, bool loadNext = false, int loadOther = -1)
+        {
+            StartCoroutine(DelayedLoad(timeToLoad, loadNext, loadOther));
+        }
 
         private void LoadLevel(bool loadNext, int loadOther) { SceneManager.LoadScene(GetLevelToLoad(loadNext, loadOther)); }
 
-        private IEnumerator DelayedLoad(bool loadNext = false, int loadOther = -1)
+        private IEnumerator DelayedLoad(int timeToLoad = 2, bool loadNext = false, int loadOther = -1)
         {
             yield return new WaitForSeconds(timeToLoad);
 
