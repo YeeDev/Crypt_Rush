@@ -6,6 +6,7 @@ using CryptRush.Movement;
 using CryptRush.Animation;
 using CryptRush.ObstacleManagement;
 using CryptRush.Control;
+using CryptRush.UI;
 
 namespace CryptRush.Collisions
 {
@@ -19,6 +20,7 @@ namespace CryptRush.Collisions
         CheckpointManager checkpoint;
         StateHandler state;
         Timer timer;
+        UIController uI;
 
         private void Awake()
         {
@@ -29,6 +31,7 @@ namespace CryptRush.Collisions
             checkpoint = FindObjectOfType<CheckpointManager>();
             state = FindObjectOfType<StateHandler>();
             timer = FindObjectOfType<Timer>();
+            uI = FindObjectOfType<UIController>();
         }
 
         private void OnTriggerEnter(Collider other) { CheckCollisionType(other.transform); }
@@ -79,6 +82,7 @@ namespace CryptRush.Collisions
             transform.parent = goal;
 
             loader.StarLoadWithDelay(true);
+            uI.GetComponent<Animator>().SetTrigger("FadeOut");
         }
 
         private void ProceessFall(Transform collisioner)
