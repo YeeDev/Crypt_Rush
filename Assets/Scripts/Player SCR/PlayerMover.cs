@@ -53,6 +53,7 @@ namespace CryptRush.Movement
             rgb.velocity = Vector3.zero;
         }
 
+        //Called in CollisionHandler.
         public bool MovingToPoint(Vector3 point)
         {
             Vector3 targetPosition = point;

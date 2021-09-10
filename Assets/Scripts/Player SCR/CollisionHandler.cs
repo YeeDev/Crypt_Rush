@@ -45,7 +45,7 @@ namespace CryptRush.Collisions
             if (collisioner.CompareTag("Checkpoint")) { checkpoint.SetCheckpoint(collisioner);  }
         }
 
-        private void TakeDamage(Transform damageDealer) //TODO Should this be handled somewhere else?
+        private void TakeDamage(Transform damageDealer)
         {
             if (isInvulnerable && !damageDealer.CompareTag("Fall")) { return; }
 

@@ -35,11 +35,5 @@ namespace CryptRush.UI
                 backgroundHearts.sizeDelta = newDeltaSize;
             }
         }
-
-        //Called in Timer.
-        public void UpdateTimer(int timeToDisplay) { timerText.text = $"{timeToDisplay} sec"; }
-
-        //Called in Scorer.
-        public void UpdateScore(int score) { scoreText.text = $"Score: {score}"; }
     }
 }

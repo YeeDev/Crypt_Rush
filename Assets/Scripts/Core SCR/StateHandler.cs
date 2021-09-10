@@ -9,8 +9,8 @@ namespace CryptRush.Core
         [SerializeField] GameState currentState = 0;
 
         //Separated just to be clear as to what is the action taken.
-        public GameState GetCurrentState { get => currentState; }
-        public GameState SetState { set => currentState = value; }
+        public GameState GetCurrentState { get => currentState; }  //Used in CollisionHandler and PlayerController.
+        public GameState SetState { set => currentState = value; } //Used in CollisionHandler and UIController.
 
         private void Awake()
         {
@@ -18,7 +18,7 @@ namespace CryptRush.Core
             StartCoroutine(SetToPlay());
         }
 
-        IEnumerator SetToPlay()
+        private IEnumerator SetToPlay()
         {
             yield return new WaitForSeconds(2);
             currentState = GameState.Playing;

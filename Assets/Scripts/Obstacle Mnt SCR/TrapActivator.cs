@@ -12,6 +12,7 @@ namespace CryptRush.ObstacleManagement
 
         private void Awake() { triggerCollider = GetComponent<Collider>(); }
 
+        //Called in CollisionHandler.
         public IEnumerator ActivateTrap()
         {
             triggerCollider.enabled = false;

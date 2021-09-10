@@ -33,8 +33,9 @@ namespace CryptRush.Core
         private int GetLevelToLoad(bool loadNext, int loadOther)
         {
             int levelToLoad = currentLevelIndex;
-            levelToLoad = loadNext ? (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings : levelToLoad;
-            levelToLoad = loadOther != -1 ? loadOther : levelToLoad;
+            if (loadNext) { levelToLoad = (currentLevelIndex + 1) % SceneManager.sceneCountInBuildSettings; }
+            else if (loadOther != -1 ) { levelToLoad = loadOther; }
+
             return levelToLoad;
         }
     }

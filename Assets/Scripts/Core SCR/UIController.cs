@@ -41,6 +41,7 @@ namespace CryptRush.Control
             pauseMenu.SetActive(paused);
         }
 
+        //Called in UI.
         public void LoadMainMenu() { loader.UILoadLevel(0); }
     }
 }

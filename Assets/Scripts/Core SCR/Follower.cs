@@ -20,7 +20,7 @@ namespace CryptRush.Core
         //Avoids slow camera initial lock.
         private void Start() { transform.position = CalculatePosition(); }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             if (player == null) { return; }
 
