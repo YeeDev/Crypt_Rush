@@ -10,13 +10,13 @@ namespace CryptRush.Obstacle
         [SerializeField] float shootDelay = 0;
         [SerializeField] float arrowSpeed = 2;
 
-        Quaternion targetRotation;
+        Quaternion shootDirection;
         ArrowPooler pooler;
 
         private void Awake()
         {
             pooler = FindObjectOfType<ArrowPooler>();
-            targetRotation = transform.rotation * pooler.GetArrowRotation;
+            shootDirection = transform.rotation * pooler.GetArrowRotation;
         }
 
         private void Start()
@@ -36,7 +36,7 @@ namespace CryptRush.Obstacle
                 {
                     Debug.LogWarning("No Arrows Available");
                     yield return new WaitForSeconds(fireRate);
-                    continue; //The "continue" function stops the loop at the point it is without stopping the loop.
+                    continue;
                 }
 
                 InitializeArrow(arrow);
@@ -48,7 +48,7 @@ namespace CryptRush.Obstacle
         private void InitializeArrow(GameObject arrow)
         {
             arrow.transform.position = transform.position;
-            arrow.transform.rotation = targetRotation;
+            arrow.transform.rotation = shootDirection;
             arrow.SetActive(true);
 
             arrow.GetComponent<Rigidbody>().velocity = transform.forward * arrowSpeed;

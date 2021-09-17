@@ -3168,13 +3168,15 @@ PrefabInstance:
       objectReference: {fileID: 949120102}
     - target: {fileID: 8453386612718784686, guid: f9a67ef6c4e0647219dd2da8cd7b3f2a, type: 3}
       propertyPath: activationDelay
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8453386612718784687, guid: f9a67ef6c4e0647219dd2da8cd7b3f2a, type: 3}
       propertyPath: m_Name
       value: Ball Activator
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8453386612718784684, guid: f9a67ef6c4e0647219dd2da8cd7b3f2a, type: 3}
+    - {fileID: 8453386612718784683, guid: f9a67ef6c4e0647219dd2da8cd7b3f2a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f9a67ef6c4e0647219dd2da8cd7b3f2a, type: 3}
 --- !u!4 &1859745189 stripped
 Transform:
@@ -3736,19 +3738,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4074452817179360729, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: m_Constraints
-      value: 2
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 4074452817179360733, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4074452817179360733, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4074452817179360733, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4074452817179360733, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: m_LocalPosition.x
