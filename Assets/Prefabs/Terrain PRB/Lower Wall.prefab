@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6210054831630706131}
   - component: {fileID: 6210054831630706129}
   - component: {fileID: 6210054831630706130}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall Left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6210054832716585801}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lower Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,6 +180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3739062876659825653, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
 --- !u!4 &5123369222027738223 stripped
@@ -208,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1240555734628475136, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.5
+      value: -15.5
       objectReference: {fileID: 0}
     - target: {fileID: 1240555734628475136, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -249,6 +253,10 @@ PrefabInstance:
     - target: {fileID: 3739062876659825653, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
       propertyPath: m_Name
       value: Pillar (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739062876659825653, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
@@ -319,6 +327,10 @@ PrefabInstance:
     - target: {fileID: 3739062876659825653, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
       propertyPath: m_Name
       value: Pillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739062876659825653, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f3fade5459d74656adf686b08a2d64c, type: 3}
