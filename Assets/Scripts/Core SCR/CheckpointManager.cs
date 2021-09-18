@@ -5,7 +5,9 @@ namespace CryptRush.Core
     public class CheckpointManager : MonoBehaviour
     {
         [SerializeField] Transform initialCheckPoint = null;
-
+        [SerializeField] Animator flagAnimator = null;
+        [SerializeField] ParticleSystem flagParticles = null;
+        
         Transform currentCheckpoint;
 
         //Used in CollisionHandler
@@ -17,7 +19,8 @@ namespace CryptRush.Core
         public void SetCheckpoint(Transform checkpoint)
         {
             currentCheckpoint = checkpoint;
-            checkpoint.GetComponent<Renderer>().material.color = Color.green;
+            flagAnimator.SetTrigger("GetCheckpoint");
+            flagParticles.Play();
         }
     }
 }
