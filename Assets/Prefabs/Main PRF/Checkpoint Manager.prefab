@@ -73,7 +73,7 @@ Transform:
   m_GameObject: {fileID: 6571523468228050261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_LocalScale: {x: 5, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 6299513421991570080}
   m_RootOrder: 0
@@ -85,6 +85,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6299513421991570080}
     m_Modifications:
+    - target: {fileID: 39885047150423455, guid: 03db1c997aff64956affb07b33460fce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189918272655179876, guid: 03db1c997aff64956affb07b33460fce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6517807765335666849, guid: 03db1c997aff64956affb07b33460fce, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.5
@@ -95,15 +103,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736400716890564114, guid: 03db1c997aff64956affb07b33460fce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5
+      value: 30.5
       objectReference: {fileID: 0}
     - target: {fileID: 8736400716890564114, guid: 03db1c997aff64956affb07b33460fce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8736400716890564114, guid: 03db1c997aff64956affb07b33460fce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8736400716890564114, guid: 03db1c997aff64956affb07b33460fce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -136,6 +144,10 @@ PrefabInstance:
     - target: {fileID: 8736400716890564206, guid: 03db1c997aff64956affb07b33460fce, type: 3}
       propertyPath: m_Name
       value: Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 8736400716890564206, guid: 03db1c997aff64956affb07b33460fce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03db1c997aff64956affb07b33460fce, type: 3}
