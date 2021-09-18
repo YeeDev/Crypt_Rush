@@ -7,7 +7,8 @@ namespace CryptRush.Core
         [SerializeField] Transform initialCheckPoint = null;
         [SerializeField] Animator flagAnimator = null;
         [SerializeField] ParticleSystem flagParticles = null;
-        
+
+        bool alreadySet;
         Transform currentCheckpoint;
 
         //Used in CollisionHandler
@@ -18,6 +19,9 @@ namespace CryptRush.Core
         //Called in CollisionHandler
         public void SetCheckpoint(Transform checkpoint)
         {
+            if(alreadySet) { return; }
+
+            alreadySet = true;
             currentCheckpoint = checkpoint;
             flagAnimator.SetTrigger("GetCheckpoint");
             flagParticles.Play();
