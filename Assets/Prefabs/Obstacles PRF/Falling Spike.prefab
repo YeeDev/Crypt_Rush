@@ -115,6 +115,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPierceValue: 0.02
   maxPierceValue: 0.07
+  shakesCamera: 1
+  shakeDuration: 0.4
+  shakeAmount: 0.05
   dustParticles: {fileID: 5915284591266360748}
 --- !u!64 &8451995340189873030
 MeshCollider:
