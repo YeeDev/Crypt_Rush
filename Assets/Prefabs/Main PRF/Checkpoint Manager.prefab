@@ -85,17 +85,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6299513421991570080}
     m_Modifications:
-    - target: {fileID: 39885047150423455, guid: 03db1c997aff64956affb07b33460fce, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 189918272655179876, guid: 03db1c997aff64956affb07b33460fce, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517807765335666849, guid: 03db1c997aff64956affb07b33460fce, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.5
+    - target: {fileID: 6516186653866946084, guid: 03db1c997aff64956affb07b33460fce, type: 3}
+      propertyPath: m_Pitch
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8736400716890564114, guid: 03db1c997aff64956affb07b33460fce, type: 3}
       propertyPath: m_RootOrder
@@ -144,10 +136,6 @@ PrefabInstance:
     - target: {fileID: 8736400716890564206, guid: 03db1c997aff64956affb07b33460fce, type: 3}
       propertyPath: m_Name
       value: Checkpoint
-      objectReference: {fileID: 0}
-    - target: {fileID: 8736400716890564206, guid: 03db1c997aff64956affb07b33460fce, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03db1c997aff64956affb07b33460fce, type: 3}
