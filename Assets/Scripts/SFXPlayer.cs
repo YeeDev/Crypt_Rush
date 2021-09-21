@@ -14,7 +14,7 @@ namespace CryptRush.Sound
         {
             if (setRandomOffset)
             {
-                audioSource.timeSamples = (int)Random.Range(0, audioSource.clip.length);
+                audioSource.time = Random.Range(0, audioSource.clip.length);
             }
         }
 
