@@ -6,6 +6,7 @@ namespace CryptRush.Obstacle
     {
         [SerializeField] float minPierceValue = 0.1f;
         [SerializeField] float maxPierceValue = 0.5f;
+        [SerializeField] ParticleSystem dustParticles = null;
 
         float pierceWaitTime;
         Collider col;
@@ -32,6 +33,8 @@ namespace CryptRush.Obstacle
             transform.tag = "Untagged";
             col.enabled = true;
             col.isTrigger = false;
+
+            if (dustParticles != null) { dustParticles.Play(); }
         }
     }
 }
