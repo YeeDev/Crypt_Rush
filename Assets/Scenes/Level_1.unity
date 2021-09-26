@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: playsSound
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6677402737348094343, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
+      propertyPath: setRandomOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6857060190561383969, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -550,12 +554,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scythe
       objectReference: {fileID: 0}
-    - target: {fileID: 4484984345505064798, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4484984345505064798, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
-      propertyPath: m_PlayOnAwake
+    - target: {fileID: 6677402737348094343, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
+      propertyPath: setRandomOffset
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6857060190561383969, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
@@ -623,6 +623,10 @@ PrefabInstance:
     - target: {fileID: 3669246040681192511, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677402737348094343, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
+      propertyPath: setRandomOffset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6857060190561383969, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_RootOrder
@@ -790,6 +794,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6677402737348094343, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
+      propertyPath: setRandomOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6857060190561383969, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -912,6 +920,10 @@ PrefabInstance:
     - target: {fileID: 3669246040681192511, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677402737348094343, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
+      propertyPath: setRandomOffset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6857060190561383969, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_RootOrder
@@ -1116,8 +1128,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4484984345505064798, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
+      propertyPath: MaxDistance
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6677402737348094343, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: playsSound
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677402737348094343, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
+      propertyPath: setRandomOffset
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6857060190561383969, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
@@ -1299,6 +1319,10 @@ PrefabInstance:
     - target: {fileID: 3669246040681192511, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677402737348094343, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
+      propertyPath: setRandomOffset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6857060190561383969, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_RootOrder
@@ -1624,6 +1648,10 @@ PrefabInstance:
     - target: {fileID: 3669246040681192511, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677402737348094343, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
+      propertyPath: setRandomOffset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6857060190561383969, guid: e59ca178d9af44f8d964e12de5c99af3, type: 3}
       propertyPath: m_RootOrder

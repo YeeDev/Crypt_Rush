@@ -12,6 +12,7 @@ namespace CryptRush.Obstacle
         [SerializeField] float shakeDuration = 0;
         [SerializeField] float shakeAmount = 0;
         [SerializeField] ParticleSystem dustParticles = null;
+        [SerializeField] AudioSource audioSource = null;
 
         float pierceWaitTime;
         Collider col;
@@ -37,7 +38,7 @@ namespace CryptRush.Obstacle
         private void OnPierceGround()
         {
             StopSpike();
-            PlayVFX();
+            PlayFX();
         }
 
         private void StopSpike()
@@ -48,10 +49,11 @@ namespace CryptRush.Obstacle
             col.isTrigger = false;
         }
 
-        private void PlayVFX()
+        private void PlayFX()
         {
             if (dustParticles != null) { dustParticles.Play(); }
             if (shakesCamera) { StartCoroutine(camVFX.CameraShake(shakeDuration, shakeAmount)); }
+            if (audioSource != null) { audioSource.Play(); }
         }
     }
 }
