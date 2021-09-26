@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rolling Boulder (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3488787565983099095, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4074452817179360728, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: speed
       value: 10
@@ -322,6 +326,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5485690275718018310, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924192242449937165, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -522,6 +530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rolling Boulder (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3488787565983099095, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4074452817179360728, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: speed
       value: 10
@@ -604,6 +616,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5485690275718018310, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924192242449937165, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -732,6 +748,14 @@ PrefabInstance:
     - target: {fileID: 5485690275718018310, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924192242449937165, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
+      propertyPath: m_Pitch
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924192242449937165, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b42db6c3ddc47bb87baa6272fffbe0, type: 3}
