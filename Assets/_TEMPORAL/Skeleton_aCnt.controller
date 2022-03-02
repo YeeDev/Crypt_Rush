@@ -166,7 +166,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!1101 &4579810047925318224
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -209,7 +209,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 1
   serializedVersion: 3
-  m_TransitionDuration: 1
+  m_TransitionDuration: 0.01
   m_TransitionOffset: 1
   m_ExitTime: 0
   m_HasExitTime: 0
