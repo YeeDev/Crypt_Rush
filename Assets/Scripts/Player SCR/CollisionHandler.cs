@@ -79,6 +79,7 @@ namespace CryptRush.Collisions
             goal.GetComponentInParent<Animator>().SetTrigger("MoveDown");
             transform.parent = goal;
 
+            anim.SetBoolAnimation("IsRunning", false);
             loader.StarLoadWithDelay(2, true);
             uI.GetComponent<Animator>().SetTrigger("FadeOut");
         }

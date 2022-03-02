@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8739156894276695664}
   - component: {fileID: 8739156894276695667}
   - component: {fileID: 6077263766831136904}
-  - component: {fileID: 7964908746673803838}
   m_Layer: 0
   m_Name: Camera Follower
   m_TagString: Untagged
@@ -60,14 +59,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camTransform: {fileID: 8739156894941127781}
---- !u!81 &7964908746673803838
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8739156894276695665}
-  m_Enabled: 1
 --- !u!1 &8739156894941127776
 GameObject:
   m_ObjectHideFlags: 0

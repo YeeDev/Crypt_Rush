@@ -23,6 +23,7 @@ namespace CryptRush.Movement
         public void MovePlayer(Vector3 direction)
         {
             rgb.MovePosition(transform.position + direction * moveSpeed);
+            anim.SetBoolAnimation("IsRunning", (Mathf.Abs(direction.x) + Mathf.Abs(direction.z)) > Mathf.Epsilon);
         }
 
         //Called in PlayerController.
@@ -56,6 +57,9 @@ namespace CryptRush.Movement
         //Called in CollisionHandler.
         public bool MovingToPoint(Vector3 point)
         {
+            anim.SetBoolAnimation("IsFalling", false);
+            anim.SetBoolAnimation("IsRunning", true);
+
             Vector3 targetPosition = point;
             targetPosition.y = transform.position.y;
 

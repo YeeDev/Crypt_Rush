@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace CryptRush.Animation
 {
-    [RequireComponent(typeof(Animator))]
     public class PlayerAnimator : MonoBehaviour
     {
         [SerializeField] float rotationSpeed = 40f;
@@ -12,11 +11,12 @@ namespace CryptRush.Animation
 
         private void Awake()
         {
-            anm = GetComponent<Animator>();
+            anm = GetComponentInChildren<Animator>();
         }
 
         //Called in CollisionHandler.
         public void TriggerAnimation(string animation) { anm.SetTrigger(animation); }
+        public void SetBoolAnimation(string animation, bool state) { anm.SetBool(animation, state); }
 
         //Called in PlayerController.
         public void RotateCharacter(bool isMoving, Vector3 moveDirection)

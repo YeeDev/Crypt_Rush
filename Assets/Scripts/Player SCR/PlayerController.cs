@@ -18,14 +18,12 @@ namespace CryptRush.Control
         Vector3 inputDirection;
         PlayerMover mover;
         PlayerAnimator anim;
-        StatsHandler stats;
         StateHandler state;
 
         private void Awake()
         {
             mover = GetComponent<PlayerMover>();
             anim = GetComponent<PlayerAnimator>();
-            stats = GetComponent<StatsHandler>();
             state = FindObjectOfType<StateHandler>();
         }
 
@@ -42,6 +40,7 @@ namespace CryptRush.Control
             if (state.GetCurrentState != GameState.Playing) { return; }
 
             grounded = Physics.CheckSphere(groundChecker.position, checkerRadius, groundLayer);
+            anim.SetBoolAnimation("IsFalling", !grounded);
 
             mover.MovePlayer(inputDirection.normalized);
         }
