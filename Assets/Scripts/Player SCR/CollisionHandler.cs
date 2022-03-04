@@ -6,11 +6,14 @@ using CryptRush.Movement;
 using CryptRush.Animation;
 using CryptRush.ObstacleManagement;
 using CryptRush.Control;
+using CryptRush.Sound;
 
 namespace CryptRush.Collisions
 {
     public class CollisionHandler : MonoBehaviour
     {
+        [SerializeField] AudioClip takeDamageAudioClip;
+
         bool isInvulnerable;
         PlayerMover mover;
         PlayerAnimator anim;
@@ -19,12 +22,14 @@ namespace CryptRush.Collisions
         CheckpointManager checkpoint;
         StateHandler state;
         UIController uI;
+        SFXPlayer sFXPlayer;
 
         private void Awake()
         {
             stats = GetComponent<StatsHandler>();
             mover = GetComponent<PlayerMover>();
             anim = GetComponent<PlayerAnimator>();
+            sFXPlayer = GetComponent<SFXPlayer>();
             loader = FindObjectOfType<LevelLoader>();
             checkpoint = FindObjectOfType<CheckpointManager>();
             state = FindObjectOfType<StateHandler>();
@@ -62,7 +67,12 @@ namespace CryptRush.Collisions
             }
 
             anim.TriggerAnimation("TakeDamage");
-            if (!damageDealer.CompareTag("Fall")) { mover.Push(damageDealer.position); }
+            Invoke("MakeVulnerable", 1.5f);
+            if (!damageDealer.CompareTag("Fall"))
+            {
+                sFXPlayer.PlayClip(takeDamageAudioClip);
+                mover.Push(damageDealer.position);
+            }
         }
 
         //Called in Animation Event

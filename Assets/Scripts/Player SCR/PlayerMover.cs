@@ -1,5 +1,6 @@
 using UnityEngine;
 using CryptRush.Animation;
+using CryptRush.Sound;
 
 namespace CryptRush.Movement
 {
@@ -12,11 +13,13 @@ namespace CryptRush.Movement
 
         Rigidbody rgb;
         PlayerAnimator anim;
+        SFXPlayer sFXPlayer;
 
         private void Awake()
         {
             rgb = GetComponent<Rigidbody>();
             anim = GetComponent<PlayerAnimator>();
+            sFXPlayer = GetComponent<SFXPlayer>();
         }
 
         //Called in PlayerController.
@@ -27,7 +30,11 @@ namespace CryptRush.Movement
         }
 
         //Called in PlayerController.
-        public void Jump() { rgb.AddForce(Vector3.up * jumpForce); }
+        public void Jump()
+        {
+            sFXPlayer.PlaySound();
+            rgb.AddForce(Vector3.up * jumpForce);
+        }
 
         //Called in PlayerController.
         public void HaltJump()

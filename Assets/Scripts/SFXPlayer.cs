@@ -19,5 +19,7 @@ namespace CryptRush.Sound
         }
 
         public void PlaySound() { if (playsSound) { audioSource.Play(); } }
+
+        public void PlayClip(AudioClip clip) { audioSource.PlayOneShot(clip); }
     }
 }
