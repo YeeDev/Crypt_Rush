@@ -11,6 +11,7 @@ TagManager:
   - Shooter
   - Fall
   - Checkpoint
+  - Boulder Stopper
   layers:
   - Default
   - TransparentFX
